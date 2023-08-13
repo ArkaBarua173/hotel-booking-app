@@ -7,6 +7,8 @@ import PrimaryButton from "@/Components/PrimaryButton";
 import TextInput from "@/Components/TextInput";
 import { Head, Link, useForm } from "@inertiajs/react";
 import { Button } from "@/Components/ui/button";
+import GoogleIcon from "@/Components/GoogleIcon";
+import { GitHubLogoIcon } from "@radix-ui/react-icons";
 
 export default function Login({
     status,
@@ -42,6 +44,19 @@ export default function Login({
                     {status}
                 </div>
             )}
+            <div className="flex justify-between my-4">
+                <a href="/auth/google/redirect">
+                    <Button>
+                        <GoogleIcon /> Continue with google
+                    </Button>
+                </a>
+                <a href="/auth/github/redirect">
+                    <Button>
+                        <GitHubLogoIcon className="mr-2 h-4 w-4" /> Continue
+                        with github
+                    </Button>
+                </a>
+            </div>
 
             <form onSubmit={submit}>
                 <div>
