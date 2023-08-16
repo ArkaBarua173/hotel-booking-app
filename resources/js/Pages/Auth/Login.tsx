@@ -11,12 +11,16 @@ import GoogleIcon from "@/Components/GoogleIcon";
 import { GitHubLogoIcon } from "@radix-ui/react-icons";
 
 export default function Login({
+    error,
     status,
     canResetPassword,
 }: {
+    error?: string;
     status?: string;
     canResetPassword: boolean;
 }) {
+    console.log(error);
+
     const { data, setData, post, processing, errors, reset } = useForm({
         email: "",
         password: "",
@@ -57,6 +61,8 @@ export default function Login({
                     </Button>
                 </a>
             </div>
+
+            <InputError message={error} className="my-2" />
 
             <form onSubmit={submit}>
                 <div>
